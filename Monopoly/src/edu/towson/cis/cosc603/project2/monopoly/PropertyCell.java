@@ -70,8 +70,10 @@ public class PropertyCell extends Cell {
 	}
 
 	/**
-	 * @param rentToCharge
-	 * @return
+	 * Calculate monopolies rent.
+	 *
+	 * @param rentToCharge the rent to charge
+	 * @return the int
 	 */
 	private int calculateMonopoliesRent(int rentToCharge) {
 		String [] monopolies = theOwner.getMonopolies();
@@ -86,7 +88,7 @@ public class PropertyCell extends Cell {
 	/* (non-Javadoc)
 	 * @see edu.towson.cis.cosc442.project1.monopoly.Cell#playAction()
 	 */
-	public boolean playAction(String msg) {
+	public void playAction() {
 		Player currentPlayer = null;
 		if(!isAvailable()) {
 			currentPlayer = GameMaster.instance().getCurrentPlayer();
