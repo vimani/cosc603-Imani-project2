@@ -4,7 +4,7 @@ package edu.towson.cis.cosc603.project2.monopoly;
 /**
  * The Class Cell.
  */
-public abstract class Cell implements IOwnable {
+public abstract class Cell {
 	
 	/** The available. */
 	private boolean available = true;
@@ -15,48 +15,52 @@ public abstract class Cell implements IOwnable {
 	/** The owner. */
 	protected Player owner;
 
-	/* (non-Javadoc)
-	 * @see edu.towson.cis.cosc603.project2.monopoly.IOwnable#getName()
+	/**
+	 * Gets the name.
+	 *
+	 * @return the name
 	 */
-	@Override
 	public String getName() {
 		return name;
 	}
 
-	/* (non-Javadoc)
-	 * @see edu.towson.cis.cosc603.project2.monopoly.IOwnable#getOwner()
+	/**
+	 * Gets the owner.
+	 *
+	 * @return the owner
 	 */
-	@Override
 	public Player getOwner() {
 		return owner;
 	}
 	
-	/* (non-Javadoc)
-	 * @see edu.towson.cis.cosc603.project2.monopoly.IOwnable#getPrice()
+	/**
+	 * Gets the price.
+	 *
+	 * @return the price
 	 */
-	@Override
 	public int getPrice() {
 		return 0;
 	}
 
-	/* (non-Javadoc)
-	 * @see edu.towson.cis.cosc603.project2.monopoly.IOwnable#isAvailable()
+	/**
+	 * Checks if is available.
+	 *
+	 * @return true, if is available
 	 */
-	@Override
 	public boolean isAvailable() {
 		return available;
 	}
 	
-	/* (non-Javadoc)
-	 * @see edu.towson.cis.cosc603.project2.monopoly.IOwnable#playAction()
+	/**
+	 * Play action.
 	 */
-	@Override
 	public abstract void playAction();
 
-	/* (non-Javadoc)
-	 * @see edu.towson.cis.cosc603.project2.monopoly.IOwnable#setAvailable(boolean)
+	/**
+	 * Sets the available.
+	 *
+	 * @param available the new available
 	 */
-	@Override
 	public void setAvailable(boolean available) {
 		this.available = available;
 	}
@@ -70,10 +74,11 @@ public abstract class Cell implements IOwnable {
 		this.name = name;
 	}
 
-	/* (non-Javadoc)
-	 * @see edu.towson.cis.cosc603.project2.monopoly.IOwnable#setOwner(edu.towson.cis.cosc603.project2.monopoly.Player)
+	/**
+	 * Sets the owner.
+	 *
+	 * @param owner the new owner
 	 */
-	@Override
 	public void setOwner(Player owner) {
 		this.owner = owner;
 	}

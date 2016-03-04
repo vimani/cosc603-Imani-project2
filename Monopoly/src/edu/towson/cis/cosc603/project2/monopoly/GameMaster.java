@@ -339,7 +339,7 @@ public class GameMaster {
 	 * @param diceValue the dice value
 	 */
 	public void movePlayer(Player player, int diceValue) {
-		IOwnable currentPosition = player.getPosition();
+		Cell currentPosition = player.getPosition();
 		int positionIndex = gameBoard.queryCellIndex(currentPosition.getName());
 		int newIndex = (positionIndex+diceValue)%gameBoard.getCellNumber();
 		if(newIndex <= positionIndex || diceValue > gameBoard.getCellNumber()) {
@@ -357,7 +357,7 @@ public class GameMaster {
 	 * @param player the player
 	 */
 	public void playerMoved(Player player) {
-		IOwnable cell = player.getPosition();
+		Cell cell = player.getPosition();
 		int playerIndex = getPlayerIndex(player);
 		if(cell instanceof CardCell) {
 		    gui.setDrawCardEnabled(true);

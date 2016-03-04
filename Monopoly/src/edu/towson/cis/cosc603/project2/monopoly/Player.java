@@ -24,7 +24,7 @@ public class Player {
 	private String name;
 
 	/** The position. */
-	private IOwnable position;
+	private Cell position;
 	
 	/** The properties. */
 	private ArrayList<PropertyCell> properties = new ArrayList<PropertyCell>();
@@ -93,7 +93,7 @@ public class Player {
 	 */
 	public boolean checkProperty(String property) {
 		for(int i=0;i<properties.size();i++) {
-			IOwnable cell = (IOwnable)properties.get(i);
+			Cell cell = (Cell)properties.get(i);
 			if(cell.getName().equals(property)) {
 				return true;
 			}
@@ -130,12 +130,12 @@ public class Player {
      *
      * @return the all properties
      */
-    public IOwnable[] getAllProperties() {
+    public Cell[] getAllProperties() {
         ArrayList<Cell> list = new ArrayList<Cell>();
         list.addAll(properties);
         list.addAll(utilities);
         list.addAll(railroads);
-        return (IOwnable[])list.toArray(new Cell[list.size()]);
+        return (Cell[])list.toArray(new Cell[list.size()]);
     }
 
 	/**
@@ -197,7 +197,7 @@ public class Player {
 	 *
 	 * @return the position
 	 */
-	public IOwnable getPosition() {
+	public Cell getPosition() {
 		return this.position;
 	}
 	
@@ -296,7 +296,7 @@ public class Player {
 	 */
 	public void purchase() {
 		if(getPosition().isAvailable()) {
-			IOwnable c = getPosition();
+			Cell c = getPosition();
 			c.setAvailable(false);
 			if(c instanceof PropertyCell) {
 				PropertyCell cell = (PropertyCell)c;
@@ -367,7 +367,7 @@ public class Player {
      * @param property the property
      * @param amount the amount
      */
-    public void sellProperty(IOwnable property, int amount) {
+    public void sellProperty(Cell property, int amount) {
         property.setOwner(null);
         if(property instanceof PropertyCell) {
             properties.remove(property);
@@ -413,7 +413,7 @@ public class Player {
 	 *
 	 * @param newPosition the new position
 	 */
-	public void setPosition(IOwnable newPosition) {
+	public void setPosition(Cell newPosition) {
 		this.position = newPosition;
 	}
 
