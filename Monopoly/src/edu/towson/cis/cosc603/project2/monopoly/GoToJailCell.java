@@ -21,4 +21,15 @@ public class GoToJailCell extends Cell {
 		GameMaster.instance().getGameBoard().queryCell("Jail");
 		GameMaster.instance().sendToJail(currentPlayer);
 	}
+
+	public void playerMoved(Player player, int playerIndex,
+			GameMaster gameMaster) {
+		if (this.isAvailable()) {
+			int price = this.getPrice();
+			if (price <= player.getMoney() && price > 0) {
+				gameMaster.getGUI().enablePurchaseBtn(playerIndex);
+			}
+		}
+		gameMaster.getGUI().enableEndTurnBtn(playerIndex);
+	}
 }

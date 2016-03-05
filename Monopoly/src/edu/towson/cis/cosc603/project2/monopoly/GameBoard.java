@@ -181,4 +181,20 @@ public class GameBoard {
     public void removeCards() {
         communityChestCards.clear();
     }
+
+	/**
+	 * Send to jail.
+	 * @param player  the player
+	 * @param gui
+	 * @param gameMaster
+	 */
+	public void sendToJail(Player player, MonopolyGUI gui, GameMaster gameMaster) {
+		int oldPosition = queryCellIndex(gameMaster.getCurrentPlayer()
+				.getPosition().getName());
+		player.setPosition(queryCell("Jail"));
+		player.setInJail(true);
+		int jailIndex = queryCellIndex("Jail");
+		gui.movePlayer(gameMaster.getPlayerIndex(player), oldPosition,
+				jailIndex);
+	}
 }

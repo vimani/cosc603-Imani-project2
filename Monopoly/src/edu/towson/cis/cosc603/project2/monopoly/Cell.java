@@ -87,4 +87,7 @@ public abstract class Cell implements IOwnable {
     public String toString() {
         return name;
     }
+
+	public abstract void playerMoved(Player player, int playerIndex,
+			GameMaster gameMaster);
 }
